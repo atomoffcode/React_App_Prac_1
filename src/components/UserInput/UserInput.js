@@ -18,9 +18,13 @@ export const UserInput = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-      const inputIsValid = userInput.duration >= 1;
-
-        {inputIsValid && props.onCalculate(userInput)}
+        const inputIsValid = userInput.duration >= 1;
+      
+        if(inputIsValid){
+          props.onCalculate(userInput)
+        }else{
+          props.onCalculate(null)
+        }
     };
     const resetHandler = (e) =>  {
         setUserInput(initUserInput)
